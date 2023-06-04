@@ -5,8 +5,27 @@
 <h1>
     Product Listing
 </h1>
+<table>
+<th>Id</th>
+<th>Name</th>
+<th>Vote Total</th>
+<th>Created</th>
+    <th>View</th>
+    <tbody>
+        {% for project in projects %}
+        <tr>
+            <td>{{  project.title }}</td>
+            <td>{{  project.title }}</td>
+            <td>{{  project.vote_total }} </td>
+            <td>{{  project.created }}</td>
+            <td><a href="{% url 'project' project.id %}">View</a></td>
+        </tr>
+        {%endfor%}
+    </tbody>
+</table>
 <h2>
-    You are in {{ page }} page <br /> page id is {{ page_id }}
+  
+   
 </h2>
 
 {% endblock content %}
