@@ -38,3 +38,21 @@ class Tag(models.Model):
 
     def __str__(self):
         return self.name
+    
+
+class PersonalDetails(models.Model):
+
+    gender_options=(
+        ("M", "Male"),("F", "Female"),
+    )
+    
+    fullName= models.CharField(max_length=100)
+    email= models.CharField(max_length=200)
+    mobile= models.CharField(max_length=20)
+    gender = models.CharField(max_length=100, choices=gender_options)
+
+
+    def __str__(self):
+
+        return self.fullName
+
