@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 #! Added by Rishav
-#! Added by Akshay
 
 """Django's command-line utility for administrative tasks."""
 import os
