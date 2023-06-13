@@ -12,6 +12,7 @@ class Project(models.Model):
     tags = models.ManyToManyField('Tag', null=True, blank=True)
     vote_total = models.IntegerField(null=True, blank=True, default=0)
     vote_ratio = models.IntegerField(null=True, blank=True, default=0)
+    author = models.CharField(max_length=150 ,null=False, blank=False, default="John Doe")
     created = models.DateTimeField(auto_now_add=True)
 
     #Added by Rishav
