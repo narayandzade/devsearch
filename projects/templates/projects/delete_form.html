@@ -1,0 +1,26 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+
+<main class="formPage my-xl">
+    <div class="content-box">
+        <div class="formWrapper">
+            <a class="backButton" href="#"><i class="im im-angle-left"></i></a>
+            <br>
+
+            <form action="" class="form" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <!-- Input:Text -->
+                <div class="form__field">
+                    <label for="formInput#text">To Be Deleted</label>
+                    <input class="input input--text" id="formInput#text" type="text" name="text"
+                        placeholder="XXXX" value="{{ project.title }}" readonly/>
+                </div>
+                <input class="btn btn--sub btn--lg  my-md" type="submit" value="Delete" onclick="return confirm('Are you sure you want to delete {{ project.title }}?')" />
+            </form>
+        </div>
+    </div>
+</main>
+
+{% endblock content %}
