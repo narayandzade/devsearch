@@ -1,18 +1,19 @@
 from django.db import models
 import uuid
+from users.models import Profiles
 # Create your models here.
 
 class Project(models.Model):
     id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
     title = models.CharField(max_length=200)
     description = models.TextField(null=True, blank=True)
-    featured_image = models.ImageField(null=True, blank=True, default="default.png")
+    featured_image = models.ImageField(null=True, blank=True, upload_to='uploads/', default="uploads/default.png")
     demo_link = models.CharField(max_length=2000, null=True, blank=True)
     source_link= models.CharField(max_length=2000, null=True, blank=True)
     tags = models.ManyToManyField('Tag', null=True, blank=True)
     vote_total = models.IntegerField(null=True, blank=True, default=0)
     vote_ratio = models.IntegerField(null=True, blank=True, default=0)
-    author = models.CharField(max_length=150 ,null=False, blank=False, default="John Doe")
+    owner = models.ForeignKey(Profiles, null=True, blank=True, on_delete=models.SET_NULL)
     created = models.DateTimeField(auto_now_add=True)
 
     #Added by Rishav
